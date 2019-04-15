@@ -1,0 +1,57 @@
+body {
+  overflow: hidden;
+}
+
+#maze_container {
+    position: relative;
+    display: inline-block;
+}
+
+#maze {
+    background-color: #fff;
+    background-size: 8em 8em
+}
+
+#maze div {
+    display: flex
+}
+
+#maze div div {
+    position: relative;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+#maze div div.wall {
+    background-color: #00688B;
+}
+
+#maze div div.exit, .entrance {
+  background-color: lightgreen;
+  border: 5px solid lightgreen;
+}
+
+body {
+    position: relative;
+    margin: 0 auto;
+    width: 1024px;
+    background: #fff;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+#maze_container {
+    position: relative;
+    display: inline-block;
+    border: 3px solid #00688B;
+    margin-top: 15px;
+}
+
+#character {
+  position: absolute;
+  background: green;
+  width: 23px;
+  height: 23px;
+  bottom: 0px;
+  left: 230px;
+}
