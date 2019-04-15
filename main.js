@@ -1,10 +1,9 @@
 $(function () {
 
-var startMenu = '<div id="start_menu"><div>';
-$("#maze_container").append(startMenu);
-
-var character = '<div id="character"><div>';
-$("#maze").append(character);
+function placeCharacter() {
+  var character = '<div id="character"><div>';
+  $("#maze").append(character);
+}
 
 var exit = $(".exit")
 //Brings back position of all div WALL elements
@@ -34,7 +33,8 @@ function checkPosition() {
 }
 
 //MOVE CHARACTER
-  $(document).keydown(function(e) {
+function moveCharacter(){
+ $(document).keydown(function(e) {
     var position = $("#character").position();
     var value = true;
       switch(e.keyCode)
@@ -59,25 +59,28 @@ function checkPosition() {
         }
     endGame();
   })
+}
 
 
-  // var offset = $('.wall').offset();
-  // var x_pos = offset.left;
-  // var y_pos = offset.top;
-  // console.log(x_pos + " " + y_pos);
-
-  //
-  // for (var i = 0; i < walls.length; i++) {
-  //     var me = walls[i];
-  //     console.log(me.offset);
-  // }
+  $(".start-button").on("click", function () { //Toggle hiding and showing maze
+    $("#maze_container").addClass("active");
+    $("#start-menu").addClass("hidden");
 
 
+  })
 
-  // var walls = ".collider";
-  //     var character = ".obstacle";
-  //     var hits = $(character).collision(walls)
-  //     var hits = $(colliders_selector).collision(obstacles_selector, { mode: "collision" /*etc*/ } )
+  $(".back-to-menu-button").on("click", function () { //Toggle hiding and showing maze
+    $("#start-menu").removeClass("hidden");
+    $("#maze_container").removeClass("active");
 
+  })
+
+  $(".restart-game").on("click", function () {
+    placeCharacter();
+    console.log("test");
+  })
+
+placeCharacter();
+moveCharacter();
 
 });
