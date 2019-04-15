@@ -23,67 +23,61 @@ function checkPosition(value) {
   var div = 'div.wall';
   var list = $("#character").collision("div.wall");
     if (list[0] !== undefined) {
-      // console.log(list[0]);
-      // console.log("Wall");
       console.log("You can't move here");
-      value = false;
-      }
+    }
       else {
         value = true;
-
+        console.log("You can move here");
     }
 }
-
-
-///Player can only move if checkposition = true
-//player can't move if checkposition = false
-
-//Work out the future move
-
-  // $("#character").css('top', position.top + 40 + 'px');
-
 //MOVE CHARACTER
-function moveCharacter() {
-
   $(document).keydown(function(e) {
-      var position = $("#character").position();
-      var value = true;
-      // if (checkPosition(false)) {
-      // if (checkPosition(true)) {
+    var value = true;
+    var list = $("#character").collision("div.wall");
 
-        switch(e.keyCode)
-        {
-          case 40: //DOWN
-            $("#character").css('top', position.top + 20 + 'px');
-            break;
-          case 38: //UP
-            $("#character").css('top', position.top - 20 + 'px');
-            break;
-          case 37: //LEFT
-            $("#character").css('left', position.left - 20 + 'px');
-            break;
-          case 39: //RIGHT
-            $("#character").css('left', position.left + 20 + 'px');
-            break;
-        }
+    // if (checkPosition(false)) {
+    // if (checkPosition(true)) {
+    var position = $("#character").position();
 
-}
+    if (list[0] !== undefined) {
+      console.log("You can't move here");
+} else {
 
 
 
+//Get position of character
+//Get position of where they want to move to on key press
+//Get position of divs
+//Compare positions. If the same movement = false
+//If different, allow movement 
 
+      switch(e.keyCode)
+      {
+        case 40: //DOWN
+        var down = $("#character").css('top', position.top + 20 + 'px');
+        var div = 'div.wall';
 
-      if checkPosition(false)
-
-
-      checkPosition();
+          if down = div.wall
+          break;
+        case 38: //UP
+          $("#character").css('top', position.top - 20 + 'px');
+          break;
+        case 37: //LEFT
+          $("#character").css('left', position.left - 20 + 'px');
+          break;
+        case 39: //RIGHT
+          $("#character").css('left', position.left + 20 + 'px');
+          break;
+      }
+    }
+      // checkPosition();
+      if (checkPosition(true)) {
+        console.log(test);
+        $("#character").css('top', position.top - 20 + 'px');
+      }
     //}
     endGame();
   //}
   })
-
-
-
-
 
 });
