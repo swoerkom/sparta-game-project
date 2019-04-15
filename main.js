@@ -1,7 +1,10 @@
 $(function () {
+
+var startMenu = '<div id="start_menu"><div>';
+$("#maze_container").append(startMenu);
+
 var character = '<div id="character"><div>';
 $("#maze").append(character);
-
 
 var exit = $(".exit")
 //Brings back position of all div WALL elements
@@ -19,45 +22,25 @@ function endGame() {
   }
 }
 
-function checkPosition(value) {
+function checkPosition() {
   var div = 'div.wall';
   var list = $("#character").collision("div.wall");
     if (list[0] !== undefined) {
-      console.log("You can't move here");
+      return true;
     }
       else {
-        value = true;
-        console.log("You can move here");
+        return false;
     }
 }
+
 //MOVE CHARACTER
   $(document).keydown(function(e) {
-    var value = true;
-    var list = $("#character").collision("div.wall");
-
-    // if (checkPosition(false)) {
-    // if (checkPosition(true)) {
     var position = $("#character").position();
-
-    if (list[0] !== undefined) {
-      console.log("You can't move here");
-} else {
-
-
-
-//Get position of character
-//Get position of where they want to move to on key press
-//Get position of divs
-//Compare positions. If the same movement = false
-//If different, allow movement 
-
+    var value = true;
       switch(e.keyCode)
       {
         case 40: //DOWN
-        var down = $("#character").css('top', position.top + 20 + 'px');
-        var div = 'div.wall';
-
-          if down = div.wall
+        $("#character").css('top', position.top + 20 + 'px');
           break;
         case 38: //UP
           $("#character").css('top', position.top - 20 + 'px');
@@ -68,16 +51,33 @@ function checkPosition(value) {
         case 39: //RIGHT
           $("#character").css('left', position.left + 20 + 'px');
           break;
-      }
-    }
-      // checkPosition();
-      if (checkPosition(true)) {
-        console.log(test);
-        $("#character").css('top', position.top - 20 + 'px');
-      }
-    //}
+        }
+
+        if (checkPosition()) {
+          $("#character").css('top', position.top + 'px');
+          $("#character").css('left', position.left + 'px');
+        }
     endGame();
-  //}
   })
+
+
+  // var offset = $('.wall').offset();
+  // var x_pos = offset.left;
+  // var y_pos = offset.top;
+  // console.log(x_pos + " " + y_pos);
+
+  //
+  // for (var i = 0; i < walls.length; i++) {
+  //     var me = walls[i];
+  //     console.log(me.offset);
+  // }
+
+
+
+  // var walls = ".collider";
+  //     var character = ".obstacle";
+  //     var hits = $(character).collision(walls)
+  //     var hits = $(colliders_selector).collision(obstacles_selector, { mode: "collision" /*etc*/ } )
+
 
 });
