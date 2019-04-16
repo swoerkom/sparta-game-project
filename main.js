@@ -4,13 +4,12 @@ var score = 0;
 var gameEnd = false;
 var walls = $(".wall");
 var exit = $(".exit")
+var item = $(".item");
 
 
 $("#maze_container").hide()
 $("#finish_screen").hide()
 $("#game_buttons").hide()
-
-placeStars();
 
 function placeCharacter() {
   var character = '<div id="character"><div>';
@@ -19,15 +18,19 @@ function placeCharacter() {
 
 
 function placeStars() {
-  for (var i = 0; i < 5; i++) {
+  var floor = $(".floor")
+  for (var i = 0; i < 6; i++) {
     var divCount = $(walls).length;
     var randomnumber=Math.floor(Math.random()*divCount);
-    console.log(randomnumber);
-    $(walls[randomnumber]).append('<img src="images/coin.png">');
-
-
-
+    $(floor[randomnumber]).append('<img class="item" class="coin" src="images/coin.png">');
   }
+
+  for (var i = 0; i < 6; i++) {
+    var divCount = $(walls).length;
+    var randomnumber=Math.floor(Math.random()*divCount);
+    $(floor[randomnumber]).append('<img class="item" class="diamond" src="images/diamond.png">');
+  }
+  console.log(item);
 }
 
   // for (var i = 0; i < walls.length; i++) {
@@ -55,13 +58,26 @@ function endGame() {
 function checkPosition() {
   var div = 'div.wall';
   var list = $("#character").collision("div.wall");
+  var itemHit = $("#character").collision(".item");
+  console.log(list[0]);
     if (list[0] !== undefined) {
       return true;
     }
       else {
         return false;
     }
+
+
 }
+
+
+function checkItem() {
+  var itemHit = $("#character").collision(".item");
+  console.log(itemHit[0]);
+
+}
+
+
 
 function playerScore() {
   if (score < 100) {
@@ -85,6 +101,8 @@ function playerScore() {
     $(character).remove();
     placeCharacter();
 }) }
+
+placeStars();
 
 //MOVE CHARACTER
 function moveCharacter(){
@@ -110,13 +128,14 @@ function moveCharacter(){
           score++;
           break;
         }
-
+        checkItem();
         if (checkPosition()) {
           $("#character").css('top', position.top + 'px');
           $("#character").css('left', position.left + 'px');
         }
+
+
     endGame();
-    console.log(score);
     if (gameEnd == true) {
               playerScore();
     }
