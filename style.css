@@ -15,11 +15,13 @@ button {
   background: transparent;
   border: 0;
   text-shadow: 2px 2px 4px black;
+  transition: 0.3s;
 
 }
 
 button:hover {
-  color: lightgrey;
+  color: #808080;
+  transform: scale(1.1);
 }
 #maze_container {
     position: relative;
@@ -92,7 +94,7 @@ h1 {
 }
 
 h2 {
-  font-size: 90px;
+  font-size: 80px;
   text-shadow: 6px 6px 6px black;
 
 }

@@ -78,15 +78,15 @@ function checkItem() {
 
 function playerScore() {
   $( ".stars" ).html('Your final score is: ' +score);
-  if (score < 65) {
+  if (score <= 60) {
     $( ".stars" ).append('<h4>Well done, you won 3 stars!</h4>');
     $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png"><img src="images/star.png">');
-} else if (score > 65 && score <= 100) {
+} else if (score > 60 && score <= 100) {
      $( ".stars" ).append('<h4>You won 2 stars, better luck next time!</h4>');
-     $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png">');
+     $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png"><img src="images/star-grey.png">');
 } else if (score > 100) {
     $( ".stars" ).append('<h4>You only won 1 star, try harder!</h4>');
-    $( ".stars" ).append('<img src="images/star.png">');
+    $( ".stars" ).append('<img src="images/star.png"><img src="images/star-grey.png"><img src="images/star-grey.png">');
   }
   $("#finish_screen").show()
   $("#maze_container").hide()
@@ -108,25 +108,23 @@ function moveCharacter(){
       {
         case 40: //DOWN
         $("#character").css('top', position.top + 20 + 'px');
-        score++;
           break;
         case 38: //UP
           $("#character").css('top', position.top - 20 + 'px');
-          score++;
           break;
         case 37: //LEFT
           $("#character").css('left', position.left - 20 + 'px');
-          score++;;
           break;
         case 39: //RIGHT
           $("#character").css('left', position.left + 20 + 'px');
-          score++;
           break;
         }
         checkItem();
         if (checkPosition()) {
           $("#character").css('top', position.top + 'px');
           $("#character").css('left', position.left + 'px');
+        } else {
+          score++
         }
     $(".score").html('Score: ' +score);
     endGame();
@@ -160,6 +158,8 @@ function moveCharacter(){
     $("#start-menu").show()
     $("#finish_screen").hide()
     $("#game_buttons").hide()
+    $("#how-to-play-screen").hide();
+
   })
 
   $(".restart-game").on("click", function () {
