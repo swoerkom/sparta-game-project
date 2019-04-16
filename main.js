@@ -22,21 +22,16 @@ function placeStars() {
   for (var i = 0; i < 6; i++) {
     var divCount = $(walls).length;
     var randomnumber=Math.floor(Math.random()*divCount);
-    $(floor[randomnumber]).append('<img class="item" class="coin" src="images/coin.png">');
+    $(floor[randomnumber]).append('<img class="item coin" src="images/coin.png">');
   }
 
   for (var i = 0; i < 6; i++) {
     var divCount = $(walls).length;
     var randomnumber=Math.floor(Math.random()*divCount);
-    $(floor[randomnumber]).append('<img class="item" class="diamond" src="images/diamond.png">');
+    $(floor[randomnumber]).append('<img class="item diamond" src="images/diamond.png">');
   }
   console.log(item);
 }
-
-  // for (var i = 0; i < walls.length; i++) {
-    // $("div").append('<img src="images/character.png">')
-
-
 
 //
 // //Brings back position of all div WALL elements
@@ -59,25 +54,29 @@ function checkPosition() {
   var div = 'div.wall';
   var list = $("#character").collision("div.wall");
   var itemHit = $("#character").collision(".item");
-  console.log(list[0]);
     if (list[0] !== undefined) {
       return true;
     }
       else {
         return false;
     }
-
-
 }
-
 
 function checkItem() {
-  var itemHit = $("#character").collision(".item");
-  console.log(itemHit[0]);
-
+  var coinHit = $("#character").collision(".coin");
+  var diamondHit = $("#character").collision(".diamond");
+    if (coinHit[0] != undefined) {
+      console.log("Coin hit");
+      $(coinHit[0]).remove();
+        score =+ 3;
+        console.log(score);
+    } if (diamondHit[0] != undefined) {
+      console.log("Diamond Hit");
+      $(diamondHit[0]).remove();
+      score =+ 10;
+      console.log(score);
+    }
 }
-
-
 
 function playerScore() {
   if (score < 100) {
@@ -104,6 +103,12 @@ function playerScore() {
 
 placeStars();
 
+
+// $(".score").append('0').css("display","inline-block");
+// $(".score.p").prepend("color","blue;");
+
+// $(".score") = '<p> 0 </p>'
+
 //MOVE CHARACTER
 function moveCharacter(){
  $(document).keydown(function(e) {
@@ -128,12 +133,15 @@ function moveCharacter(){
           score++;
           break;
         }
-        checkItem();
+
+        $(".score").append('Score: ' +score).css("display","inline-block");
+        $(".score").remove().css("display","inline-block");
+
+          checkItem();
         if (checkPosition()) {
           $("#character").css('top', position.top + 'px');
           $("#character").css('left', position.left + 'px');
         }
-
 
     endGame();
     if (gameEnd == true) {
