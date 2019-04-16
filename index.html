@@ -21,23 +21,38 @@
         <div style="text-align: center;">
 
 
-        <div id="start-menu" class="hidden">
+        <div id="start-menu">
           <!-- <button type="button" class="back-to-menu-button">Click Me!</button> -->
 
           <h1>Maze Game</h1>
             <br>
             <button type="button" class="start-button"><h2>START</h2></button>
             <h3>HOW TO PLAY</h3>
-            <h3>HIGHSCORES</h3><h3>
-            </h3><h3>OPTIONS</h3><h3>
-        </h3></div>
+            <h3>HIGHSCORES</h3>
+            <h3>OPTIONS</h3>
+        </div>
+
+        <div id="finish_screen">
+          <h1>Maze Game</h1>
+            <br>
+            <h2>Level Completed</h2>
+            <br>
+            <div class="stars"></div>
+            <button type="button" class="play-again"><h3>Play again?</h3></button>
+            <button type="button" class="back-to-menu-button"><h3>Back to start menu</h3></button>
+
+          </div>
+
+
+
+
         <!-- <div id="highscores">
           <h1>HIGHSCORES</h2>
 
         </div>     -->
 
 
-          <div id="maze_container" class="active">
+          <div id="maze_container">
             <div id="maze">
                 <div>
                     <div class="wall"></div>
@@ -1195,16 +1210,13 @@
                     <div class="wall"></div>
                 </div>
             </div>
+            <div>
         </div>
-        <div id="maze_output">
-            <div id="maze_score">
-
-          </div>
-            <div id="maze_message">
-             </div>
-        </div>
-        <button type="button" class="back-to-menu-button"><h4>Restart the game</h4></button>
-        <button type="button" class="restart-game"><h4>Back to start menu</h4></button>
+      </div>
+    <div id="game_buttons">
+      <button type="button" class="restart-game"><h4>Reset game</h4></button>
+      <button type="button" class="back-to-menu-button"><h4>Back to start menu</h4></button>
+      <button type="button" class="finish_screen"><h4>Finsih menu test</h4></button>
 
     </div>
 

@@ -1,57 +1,89 @@
-body {
-  overflow: hidden;
+* {
+  font-family: 'Cute Font', cursive;
+
 }
 
+body {
+  overflow: hidden;
+  color: white;
+  background-color: black;
+}
+
+button {
+  background: transparent;
+  border: 0;
+}
 #maze_container {
     position: relative;
     display: inline-block;
+    margin-top: 18px;
+}
+
+#start-menu, #finish_screen{
+  position: relative;
+  display: inline-block;
+  background-color: black;
+  width: 670px;
+  height: 670px;
+  border: 1px solid black;
+  margin-top: 18px;
+  border-image: url("images/stone.jpg") 20 round;
+  border-image-width: 20;
+  background-image: url("images/wood.jpg");
+  background-repeat: repeat;
+
+
+
+
+
 }
 
 #maze {
-    background-color: #fff;
+  background-image: url("images/wood.jpg");
     background-size: 8em 8em
 }
-
 #maze div {
     display: flex
 }
 
 #maze div div {
     position: relative;
-    width: 1.4em;
-    height: 1.4em;
+    width: 20px;
+    height: 20px;
 }
 
 #maze div div.wall {
-    background-color: #00688B;
+  background-image: url("images/stone.png");
+
 }
 
 #maze div div.exit, .entrance {
-  background-color: lightgreen;
-  border: 5px solid lightgreen;
+  background-image: url("images/door.png");
+  width: 20px;
+  height: 20px;
 }
 
 body {
     position: relative;
     margin: 0 auto;
     width: 1024px;
-    background: #fff;
+    background: black;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
-#maze_container {
-    position: relative;
-    display: inline-block;
-    border: 3px solid #00688B;
-    margin-top: 15px;
-}
 
 #character {
   position: absolute;
-  background: green;
-  width: 23px;
-  height: 23px;
+  background-image: url("images/character.png");
+  width: 20px;
+  height: 20px;
   bottom: 0px;
-  left: 230px;
+  left: 220px;
+}
+
+
+h1 {
+  padding-top: 110px;
+  font-size: 50px;
 }
