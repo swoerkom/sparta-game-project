@@ -7,9 +7,10 @@ var exit = $(".exit")
 var item = $(".item");
 
 
-$("#maze_container").hide()
-$("#finish_screen").hide()
-$("#game_buttons").hide()
+$("#maze_container").hide();
+$("#finish_screen").hide();
+$("#game_buttons").hide();
+$("#how-to-play-screen").hide();
 
 function placeCharacter() {
   var character = '<div id="character"><div>';
@@ -19,18 +20,17 @@ function placeCharacter() {
 
 function placeStars() {
   var floor = $(".floor")
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 15; i++) {
     var divCount = $(walls).length;
     var randomnumber=Math.floor(Math.random()*divCount);
     $(floor[randomnumber]).append('<img class="item coin" src="images/coin.png">');
   }
 
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 10; i++) {
     var divCount = $(walls).length;
     var randomnumber=Math.floor(Math.random()*divCount);
     $(floor[randomnumber]).append('<img class="item diamond" src="images/diamond.png">');
   }
-  console.log(item);
 }
 
 //
@@ -68,31 +68,26 @@ function checkItem() {
     if (coinHit[0] != undefined) {
       console.log("Coin hit");
       $(coinHit[0]).remove();
-        score =+ 3;
-        console.log(score);
+        score = score - 3;
     } if (diamondHit[0] != undefined) {
       console.log("Diamond Hit");
       $(diamondHit[0]).remove();
-      score =+ 10;
-      console.log(score);
+      score = score - 6;
     }
 }
 
 function playerScore() {
-  if (score < 100) {
+  $( ".stars" ).html('Your final score is: ' +score);
+  if (score < 65) {
     $( ".stars" ).append('<h4>Well done, you won 3 stars!</h4>');
     $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png"><img src="images/star.png">');
-    if (score > 100 && score < 130) {
+} else if (score > 65 && score <= 100) {
      $( ".stars" ).append('<h4>You won 2 stars, better luck next time!</h4>');
      $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png">');
-   }
-  } else {
+} else if (score > 100) {
     $( ".stars" ).append('<h4>You only won 1 star, try harder!</h4>');
     $( ".stars" ).append('<img src="images/star.png">');
-
   }
-  console.log("Player Score: "+score);
-  console.log("Game over!");
   $("#finish_screen").show()
   $("#maze_container").hide()
   $("#game_buttons").hide()
@@ -102,12 +97,7 @@ function playerScore() {
 }) }
 
 placeStars();
-
-
-// $(".score").append('0').css("display","inline-block");
-// $(".score.p").prepend("color","blue;");
-
-// $(".score") = '<p> 0 </p>'
+$(".score").append('Score: ' +score).css("display","inline-block");
 
 //MOVE CHARACTER
 function moveCharacter(){
@@ -133,21 +123,16 @@ function moveCharacter(){
           score++;
           break;
         }
-
-        $(".score").append('Score: ' +score).css("display","inline-block");
-        $(".score").remove().css("display","inline-block");
-
-          checkItem();
+        checkItem();
         if (checkPosition()) {
           $("#character").css('top', position.top + 'px');
           $("#character").css('left', position.left + 'px');
         }
-
+    $(".score").html('Score: ' +score);
     endGame();
     if (gameEnd == true) {
               playerScore();
     }
-
       })
 }
 
@@ -166,6 +151,7 @@ function moveCharacter(){
     placeCharacter();
     $("#maze_container").show()
     $("#finish_screen").hide()
+    $("#game_buttons").show()
 
   })
 
@@ -174,22 +160,23 @@ function moveCharacter(){
     $("#start-menu").show()
     $("#finish_screen").hide()
     $("#game_buttons").hide()
-
-
   })
 
   $(".restart-game").on("click", function () {
     $(character).remove();
+    $(".item").remove();
     placeCharacter();
+    placeStars();
+    score =+ 0;
   })
 
-  $(".finish_screen").on("click", function () { //Toggle hiding and showing maze
-    $("#finish_screen").show()
+  $(".how-to-play-button").on("click", function() {
+    $("#maze_container").hide();
+    $("#start-menu").hide();
+    $("#how-to-play-screen").show();
 
-})
 
-
-
+  })
 
     placeCharacter();
     moveCharacter();

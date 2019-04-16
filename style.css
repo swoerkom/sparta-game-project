@@ -7,11 +7,19 @@ body {
   overflow: hidden;
   color: white;
   background-color: black;
+  text-shadow: 2px 2px 4px black;
+
 }
 
 button {
   background: transparent;
   border: 0;
+  text-shadow: 2px 2px 4px black;
+
+}
+
+button:hover {
+  color: lightgrey;
 }
 #maze_container {
     position: relative;
@@ -19,7 +27,7 @@ button {
     margin-top: 18px;
 }
 
-#start-menu, #finish_screen{
+#start-menu, #finish_screen, #how-to-play-screen{
   position: relative;
   display: inline-block;
   background-color: black;
@@ -31,11 +39,6 @@ button {
   border-image-width: 20;
   background-image: url("images/wood.jpg");
   background-repeat: repeat;
-
-
-
-
-
 }
 
 #maze {
@@ -78,14 +81,72 @@ body {
   background-image: url("images/character.png");
   width: 20px;
   height: 20px;
-  bottom: 0px;
+  bottom: 20px;
   left: 220px;
 }
 
 
 h1 {
-  padding-top: 110px;
-  font-size: 50px;
+  padding-top: 20px;
+  font-size: 160px;
+}
+
+h2 {
+  font-size: 90px;
+  text-shadow: 6px 6px 6px black;
+
+}
+
+h3 {
+  font-size: 40px;
+}
+
+.stars h4 {
+  padding-bottom: 30px;
+}
+
+h4 {
+  margin: 0px;
+  font-size: 30px;
+}
+
+#arrow-key-description {
+  font-size: 30px;
+  float: left;
+  width: 300px;
+  padding: 50px;
+}
+
+#second-description {
+  font-size: 30px;
+  float: left;
+  width: 400px;
+  padding-top: 60px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+#diamond_big {
+  float: left;
+  padding-top: 300px;
+  padding-left: 10px;
+}
+
+#coin_big {
+  float: left;
+  padding-top: 380px;
+  padding-right: 80px;
+
+}
+#how-to-play-screen img {
+  position: absolute;
+
+}
+
+.play-again, .back-to-menu-button {
+  font-size: 30px;
+  border-image: url("images/stone.jpg") 20 round;
+
 }
 
 .score{
