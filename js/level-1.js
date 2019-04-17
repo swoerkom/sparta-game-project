@@ -72,13 +72,13 @@ $(function () {
   //Displays player score on finish
   function playerScore() {
     $( ".stars" ).html('Your final score is: ' +score);
-    if (score <= 60) {
+    if (score <= 30) {
       $( ".stars" ).append('<h4>Well done, you won 3 stars!</h4>');
       $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png"><img src="images/star.png">');
-  } else if (score > 60 && score <= 100) {
+  } else if (score > 30 && score <= 45) {
        $( ".stars" ).append('<h4>You won 2 stars, better luck next time!</h4>');
        $( ".stars" ).append('<img src="images/star.png"><img src="images/star.png"><img src="images/star-grey.png">');
-  } else if (score > 100) {
+  } else if (score > 45) {
       $( ".stars" ).append('<h4>You only won 1 star, try harder!</h4>');
       $( ".stars" ).append('<img src="images/star.png"><img src="images/star-grey.png"><img src="images/star-grey.png">');
     }
@@ -90,7 +90,7 @@ $(function () {
       placeCharacter();
   }) };
 
-  placeStars();
+  placeItems();
   $(".score").append('Score: ' +score).css("display","inline-block");
 
   //MOVE CHARACTER
@@ -124,6 +124,7 @@ $(function () {
       endGame();
       if (gameEnd == true) {
                 playerScore();
+                score =+ 0;
       }
         })
   }
@@ -153,13 +154,17 @@ $(function () {
       $("#finish_screen").hide();
       $("#game_buttons").hide();
       $("#how-to-play-screen").hide();
+      score =+ 0;
+      $(".score").html('Score: ' +score);
+      placeCharacter();
+      placeItems();
     })
 
     $(".restart-game").on("click", function () {
       $(character).remove();
       $(".item").remove();
       placeCharacter();
-      placeStars();
+      placeItems();
       score =+ 0;
       $(".score").html('Score: ' +score);
     })

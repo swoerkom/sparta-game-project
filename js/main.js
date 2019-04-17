@@ -93,7 +93,7 @@ $(function () {
       placeCharacter();
   }) }
 
-  placeStars();
+  placeItems();
   $(".score").append('Score: ' +score).css("display","inline-block");
 
   //MOVE CHARACTER
@@ -127,6 +127,7 @@ $(function () {
       endGame();
       if (gameEnd == true) {
                 playerScore();
+                score =+ 0;
       }
         })
   }
@@ -169,6 +170,10 @@ $(function () {
       $("#finish_screen").hide();
       $("#game_buttons").hide();
       $("#how-to-play-screen").hide();
+      score =+ 0;
+      $(".score").html('Score: ' +score);
+      placeCharacter();
+      placeItems();
 
     })
 
@@ -176,7 +181,7 @@ $(function () {
       $(character).remove();
       $(".item").remove();
       placeCharacter();
-      placeStars();
+      placeItems();
       score =+ 0;
       $(".score").html('Score: ' +score);
     })
