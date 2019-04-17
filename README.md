@@ -10,6 +10,8 @@ Each step you take adds one to your score.
 Collect the gold coins and diamonds to lower your score. 
 
 ## Plugins
-jQuery.
+jQuery
+
+Bootstrap
 
 jQuery Collisons: to work out when the player collides with the walls of the maze. Additionally, when a player collides with a diamond or gold coin. When a collison occurs, the object is removed and it changes their game score. 
