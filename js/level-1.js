@@ -6,15 +6,18 @@ $(function () {
   var exit = $(".exit");
   var item = $(".item");
 
+  //Hide elements on launch
   $("#maze_container").show();
   $("#finish_screen").hide();
 
+  //Place character on maze board
   function placeCharacter() {
     var character = '<div id="character"><div>';
     $("#maze").append(character);
   }
 
-  function placeStars() {
+  //Place gold coins and diamonds on maze board
+  function placeItems() {
     var floor = $(".floor");
     for (var i = 0; i < 15; i++) {
       var divCount = $(walls).length;
@@ -29,6 +32,7 @@ $(function () {
     }
   }
 
+  //End game when player reaches exit div
   function endGame() {
     if ($(exit).offset().top  == $("#character").offset().top) {
       if ($(exit).offset().left == $("#character").offset().left) {
@@ -39,6 +43,7 @@ $(function () {
     }
   }
 
+  //Check player position using jQuery Collison plugin
   function checkPosition() {
     var div = 'div.wall';
     var list = $("#character").collision("div.wall");
@@ -51,6 +56,7 @@ $(function () {
       }
   }
 
+  //Check player position, if they have hit a diamond or gold coin
   function checkItem() {
     var coinHit = $("#character").collision(".coin");
     var diamondHit = $("#character").collision(".diamond");
@@ -63,6 +69,7 @@ $(function () {
       }
   }
 
+  //Displays player score on finish
   function playerScore() {
     $( ".stars" ).html('Your final score is: ' +score);
     if (score <= 60) {
@@ -121,7 +128,8 @@ $(function () {
         })
   }
 
-    $(".start-button").on("click", function () { //Toggle hiding and showing maze
+  //Game buttons
+    $(".start-button").on("click", function () {
       $("#maze_container").show();
       $("#start-menu").hide();
       $("#game_buttons").show();
@@ -139,7 +147,7 @@ $(function () {
       $("#game_buttons").show();
     })
 
-    $(".back-to-menu-button").on("click", function () { //Toggle hiding and showing maze
+    $(".back-to-menu-button").on("click", function () {
       $("#maze_container").hide();
       $("#start-menu").show();
       $("#finish_screen").hide();
