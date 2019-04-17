@@ -1,6 +1,5 @@
 * {
   font-family: 'Cute Font', cursive;
-
 }
 
 body {
@@ -9,6 +8,23 @@ body {
   background-color: black;
   text-shadow: 2px 2px 4px black;
 
+}
+
+a:link {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0;
+}
+
+a {
+  color: white;
+  display: inline-block;
+
+}
+
+a:hover {
+  color: #808080;
+  display: inline-block;
 }
 
 button {
@@ -29,7 +45,7 @@ button:hover {
     margin-top: 18px;
 }
 
-#start-menu, #finish_screen, #how-to-play-screen{
+#start-menu, #finish_screen, #how-to-play-screen, #level-menu{
   position: relative;
   display: inline-block;
   background-color: black;
@@ -157,4 +173,19 @@ h4 {
   margin-left: 190px;
   margin-right: 100px
 
+}
+
+#start-menu img {
+  padding-top: 30px;
+}
+
+#level-menu img {
+  position: absolute;
+  display: inline;
+  margin-bottom: 500px;
+
+}
+
+#level-menu h3 {
+  display: inline;
 }

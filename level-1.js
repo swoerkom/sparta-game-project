@@ -7,11 +7,9 @@ var exit = $(".exit")
 var item = $(".item");
 
 
-$("#maze_container").hide();
-$("#level-menu").hide();
+$("#maze_container").show();
 $("#finish_screen").hide();
-$("#game_buttons").hide();
-$("#how-to-play-screen").hide();
+
 
 function placeCharacter() {
   var character = '<div id="character"><div>';
@@ -136,25 +134,13 @@ function moveCharacter(){
 }
 
   $(".start-button").on("click", function () { //Toggle hiding and showing maze
-    $("#level-menu").show()
-    $("#start-menu").hide()
-    $("#game_buttons").hide()
-    $( ".stars" ).html("");
-    $(character).remove();
-    placeCharacter();
-  })
-
-
-  $(".level2-button").on("click", function () { //Toggle hiding and showing maze
     $("#maze_container").show()
-    $("#level-menu").hide()
     $("#start-menu").hide()
     $("#game_buttons").show()
     $( ".stars" ).html("");
     $(character).remove();
     placeCharacter();
   })
-
 
   $(".play-again").on("click", function () {
     $( ".stars" ).html("");
@@ -187,8 +173,6 @@ function moveCharacter(){
     $("#maze_container").hide();
     $("#start-menu").hide();
     $("#how-to-play-screen").show();
-
-
   })
 
     placeCharacter();
