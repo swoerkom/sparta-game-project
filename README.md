@@ -2,7 +2,7 @@
 A fun maze style game with two levels, built in HTML and JavaScript. Collect diamonds and coins and find the exit to win!
 
 
-![Game Screenshot](gitimage/screenshot.png)
+![Game Screenshot](gitimages/screenshot.png)
 
 
 
