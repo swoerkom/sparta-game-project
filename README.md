@@ -18,3 +18,4 @@ jQuery
 Bootstrap
 
 jQuery Collisons: to work out when the player collides with the walls of the maze. Also, when a player collides with a diamond or gold coin. When a collison occurs, the object is removed and it changes their game score.
+
