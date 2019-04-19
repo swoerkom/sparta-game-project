@@ -1,5 +1,5 @@
 * {
-  font-family: 'Cute Font', cursive;
+  font-family: 'Press Start 2P', cursive;
 }
 
 body {
@@ -7,29 +7,12 @@ body {
   color: white;
   background-color: black;
   text-shadow: 2px 2px 4px black;
-
-}
-
-a:link {
-  text-decoration: none;
-  display: inline-block;
-  padding: 0;
-}
-
-a {
-  color: white;
-  display: inline-block;
-
-}
-
-a:hover {
-  color: #808080;
-  display: inline-block;
 }
 
 button {
   background: transparent;
   border: 0;
+  margin: 0;
   text-shadow: 2px 2px 4px black;
   transition: 0.3s;
 
@@ -39,10 +22,28 @@ button:hover {
   color: #808080;
   transform: scale(1.1);
 }
+
+a:link {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0;
+}
+
+
+a {
+  color: white;
+  display: inline-block;
+
+}
+
+a:hover {
+  color: #808080;
+}
+
 #maze_container {
-    position: relative;
-    display: inline-block;
-    margin-top: 18px;
+  position: relative;
+  display: inline-block;
+  margin-top: 18px;
 }
 
 #start-menu, #finish_screen, #how-to-play-screen, #level-menu{
@@ -59,47 +60,51 @@ button:hover {
   background-repeat: repeat;
 }
 
-.maze2 {
-  background-image: url("../images/wood.jpg");
-    background-size: 8em 8em
+.level-1 {
+  background-image: url("../images/stone.jpg");
+  background-size: 8em 8em
 }
 
-.maze1 {
-  background-image: url("../images/stone-level1.jpg");
-    background-size: 8em 8em
+.level-1 .wall{
+  background-image: url("../images/stone.png");
 }
+
+.level-2 {
+  background-image: url("../images/wood.jpg");
+  background-size: 8em 8em
+}
+
+.level-2 div div.wall {
+  background-image: url("../images/stone.png");
+}
+
 #maze div {
-    display: flex
+  display: flex
 }
 
 #maze div div {
-    position: relative;
-    width: 20px;
-    height: 20px;
+  position: relative;
+  width: 20px;
+  height: 20px;
 }
 
-.maze2 div div.wall {
-  background-image: url("../images/stone.png");
-
-}
-
-#maze div div.exit, .entrance {
+#maze div div.exit{
   background-image: url("../images/door.png");
   width: 20px;
   height: 20px;
 }
 
-.maze1 .wall{
-  background-image: url("../images/stone-level1.png");
+#maze div .entrance {
+  background-image: url("../images/door.png");
 }
 
 body {
-    position: relative;
-    margin: 0 auto;
-    width: 1024px;
-    background: black;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 15px;
+  position: relative;
+  margin: 0 auto;
+  width: 1024px;
+  background: black;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 15px;
 }
 
 
@@ -114,73 +119,80 @@ body {
 
 
 h1 {
-  padding-top: 20px;
-  font-size: 160px;
+  padding: 50px;
+  font-size: 55px;
 }
 
 h2 {
-  font-size: 80px;
+  font-size: 50px;
+  padding: 25px;
   text-shadow: 6px 6px 6px black;
-
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.stars h3 {
+  font-size: 15px;
+  padding-bottom: 70px;
 }
 
 .stars h4 {
-  padding-bottom: 30px;
+  padding: 50px;
+  text-shadow: 2px 2px 4px black;
+  font-size: 15px;
 }
 
-h4 {
-  margin: 0px;
-  font-size: 30px;
+h5 {
+  padding-top: 40px;
+  font-size: 12px;
 }
+
 
 #arrow-key-description {
-  font-size: 30px;
+  font-size: 15px;
   float: left;
   width: 300px;
   padding: 50px;
 }
 
 #second-description {
-  font-size: 30px;
+  font-size: 15px;
   float: left;
   width: 400px;
-  padding-top: 60px;
+  padding-top: 20px;
   padding-right: 50px;
   padding-left: 50px;
 }
 
 #diamond_big {
   float: left;
+  padding-top: 250px;
+  padding-left: 100px;
+}
+
+#diamond_big_2 {
+  float: left;
   padding-top: 300px;
-  padding-left: 10px;
+  padding-left: 200px;
+}
+
+.spider {
+  background-image: url("../images/spider.png");
+
 }
 
 #coin_big {
   float: left;
-  padding-top: 380px;
+  padding-top: 330px;
   padding-right: 80px;
-
+  padding-left: 100px;
 }
+
 #how-to-play-screen img {
   position: absolute;
-
-}
-
-.play-again, .back-to-menu-button {
-  font-size: 30px;
-  border-image: url("../images/stone.jpg") 20 round;
-}
-
-.score{
-  display: inline-block;
-  float: left;
-  margin-left: 190px;
-  margin-right: 100px
-
 }
 
 #start-menu img {
@@ -189,11 +201,21 @@ h4 {
 
 #level-menu img {
   position: absolute;
-  display: inline;
   margin-bottom: 500px;
-
+  padding-left: 200px;
 }
 
-#level-menu h3 {
-  display: inline;
+#game_buttons .score, .restart-game, .back-to-menu-button {
+  font-size: 12px;
+}
+
+#game_buttons .score {
+  display: inline-block;
+  padding-right: 120px;
+}
+
+.game_message {
+  position: fixed;
+  top: 50%;
+  left: 30%;
 }
