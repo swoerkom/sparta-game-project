@@ -2,10 +2,6 @@
 A fun maze style game with two levels, built in HTML and JavaScript. Collect diamonds and coins and find the exit to win!
 
 
-![Game Screenshot](gitimage/screenshot.png)
-
-
-
 ## How to Play
 The aim of the game is to fine the exit with the lowest score possible to collect all 3 stars.
 Move around the maze board using the left, right up and down arrow keys.
